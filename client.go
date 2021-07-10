@@ -8,21 +8,7 @@ import (
 	"time"
 )
 
-const HostURL string = "https://fram.darkedges.com"
-
-// Client -
-type Client struct {
-	HostURL    string
-	HTTPClient *http.Client
-	Token      string
-}
-
-// AuthResponse -
-type AuthResponse struct {
-	TokenId    string `json:"tokenId"`
-	SuccessUrl string `json:"successUrl"`
-	Realm      string `json:"realm"`
-}
+const HostURL string = "http://fram.example.com:8080/openam"
 
 // NewClient -
 func NewClient(host, username, password *string, realm *string) (*Client, error) {
@@ -37,7 +23,7 @@ func NewClient(host, username, password *string, realm *string) (*Client, error)
 
 	if (username != nil) && (password != nil) {
 		// authenticate
-		req, err := http.NewRequest("POST", fmt.Sprintf("%s/openam/json/realms%s/authenticate", c.HostURL, *realm), nil)
+		req, err := http.NewRequest("POST", fmt.Sprintf("%s/json/realms%s/authenticate", c.HostURL, *realm), nil)
 		if err != nil {
 			return nil, err
 		}
