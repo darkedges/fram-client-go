@@ -28,8 +28,7 @@ type AuthResponse struct {
 func NewClient(host, username, password *string, realm *string) (*Client, error) {
 	c := Client{
 		HTTPClient: &http.Client{Timeout: 10 * time.Second},
-		// Default Hashicups URL
-		HostURL: HostURL,
+		HostURL:    HostURL,
 	}
 
 	if host != nil {
@@ -37,15 +36,14 @@ func NewClient(host, username, password *string, realm *string) (*Client, error)
 	}
 
 	if (username != nil) && (password != nil) {
-
 		// authenticate
-		req, err := http.NewRequest("POST", fmt.Sprintf("%s/openam/json/realms/root/authenticate", c.HostURL), nil)
+		req, err := http.NewRequest("POST", fmt.Sprintf("%s/openam/json/realms%s/authenticate", c.HostURL, *realm), nil)
 		if err != nil {
 			return nil, err
 		}
-
-		req.Header.Add("X-OpenAM-Password", *username)
-		req.Header.Add("X-OpenAM-Username", *password)
+		req.Header.Add("X-OpenAM-Password", *password)
+		req.Header.Add("X-OpenAM-Username", *username)
+		req.Header.Add("Accept-API-Version", "resource=2.1")
 
 		body, err := c.doRequest(req)
 
@@ -63,8 +61,7 @@ func NewClient(host, username, password *string, realm *string) (*Client, error)
 }
 
 func (c *Client) doRequest(req *http.Request) ([]byte, error) {
-	req.Header.Set("Authorization", c.Token)
-
+	req.Header.Add("Cookie", fmt.Sprintf("iPlanetDirectoryPro=%s", c.Token))
 	res, err := c.HTTPClient.Do(req)
 	if err != nil {
 		return nil, err
@@ -75,7 +72,6 @@ func (c *Client) doRequest(req *http.Request) ([]byte, error) {
 	if err != nil {
 		return nil, err
 	}
-
 	if res.StatusCode != http.StatusOK {
 		return nil, fmt.Errorf("status: %d, body: %s", res.StatusCode, body)
 	}
