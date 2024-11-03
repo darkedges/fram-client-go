@@ -5,6 +5,7 @@ import "net/http"
 // Client -
 type Client struct {
 	HostURL    string
+	Realm      string
 	HTTPClient *http.Client
 	Token      string
 }

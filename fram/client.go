@@ -3,7 +3,7 @@ package fram
 import (
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"time"
 )
@@ -20,10 +20,13 @@ func NewClient(host, username, password *string, realm *string) (*Client, error)
 	if host != nil {
 		c.HostURL = *host
 	}
+	if realm != nil {
+		c.Realm = *realm
+	}
 
 	if (username != nil) && (password != nil) {
 		// authenticate
-		req, err := http.NewRequest("POST", fmt.Sprintf("%s/json/realms%s/authenticate", c.HostURL, *realm), nil)
+		req, err := http.NewRequest("POST", fmt.Sprintf("%s/json/authenticate", c.HostURL), nil)
 		if err != nil {
 			return nil, err
 		}
@@ -54,7 +57,7 @@ func (c *Client) doRequest(req *http.Request) ([]byte, error) {
 	}
 	defer res.Body.Close()
 
-	body, err := ioutil.ReadAll(res.Body)
+	body, err := io.ReadAll(res.Body)
 	if err != nil {
 		return nil, err
 	}

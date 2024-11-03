@@ -13,7 +13,7 @@ func (c *Client) CreateBaseURLSource(bus BaseURLSource) (*Result, error) {
 		return nil, err
 	}
 
-	req, err := http.NewRequest("PUT", fmt.Sprintf("%s/json/realm-config/services/baseurl", c.HostURL), strings.NewReader(string(rb)))
+	req, err := http.NewRequest("PUT", fmt.Sprintf("%s/json%s/realm-config/services/baseurl", c.HostURL, c.Realm), strings.NewReader(string(rb)))
 
 	req.Header.Add("Content-Type", "application/json")
 	req.Header.Add("X-Requested-With", "SwaggerUI")
@@ -37,7 +37,7 @@ func (c *Client) CreateBaseURLSource(bus BaseURLSource) (*Result, error) {
 }
 
 func (c *Client) GetBaseURLSource() (*BaseURLSource, error) {
-	req, err := http.NewRequest("GET", fmt.Sprintf("%s/json/realm-config/services/baseurl", c.HostURL), nil)
+	req, err := http.NewRequest("GET", fmt.Sprintf("%s/json%s/realm-config/services/baseurl", c.HostURL, c.Realm), nil)
 
 	req.Header.Add("Content-Type", "application/json")
 	req.Header.Add("X-Requested-With", "SwaggerUI")
@@ -60,8 +60,12 @@ func (c *Client) GetBaseURLSource() (*BaseURLSource, error) {
 	return &result, nil
 }
 
+func (c *Client) UpdateBaseURLSource(source BaseURLSource) (*Result, error) {
+	return c.CreateBaseURLSource(source)
+}
+
 func (c *Client) DeleteBaseURLSource() (*BaseURLSource, error) {
-	req, err := http.NewRequest("DELETE", fmt.Sprintf("%s/json/realm-config/services/baseurl", c.HostURL), nil)
+	req, err := http.NewRequest("DELETE", fmt.Sprintf("%s/json%s/realm-config/services/baseurl", c.HostURL, c.Realm), nil)
 
 	req.Header.Add("Content-Type", "application/json")
 	req.Header.Add("X-Requested-With", "SwaggerUI")
