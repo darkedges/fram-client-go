@@ -23,7 +23,6 @@ func NewClient(host, username, password *string, realm *string) (*Client, error)
 	if realm != nil {
 		c.Realm = *realm
 	}
-
 	if (username != nil) && (password != nil) {
 		f, _ := frodo.CreateInstanceWithAdminAccount(frodo.Params{
 			Host:  *host,

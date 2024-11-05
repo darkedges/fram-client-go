@@ -1,13 +1,11 @@
 module github.com/darkedges/fram-client-go
 
-go 1.22.0
-
-toolchain go1.23.2
+go 1.23.2
 
 require github.com/darkedges/go-frodo-lib v0.0.2
 
 require (
-	github.com/boombuler/barcode v1.0.1-0.20190219062509-6c824513bacc // indirect
+	github.com/boombuler/barcode v1.0.2 // indirect
 	github.com/decred/dcrd/dcrec/secp256k1/v4 v4.3.0 // indirect
 	github.com/goccy/go-json v0.10.3 // indirect
 	github.com/google/uuid v1.6.0 // indirect
