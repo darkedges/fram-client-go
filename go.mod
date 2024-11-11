@@ -2,7 +2,7 @@ module github.com/darkedges/fram-client-go
 
 go 1.23.2
 
-require github.com/darkedges/go-frodo-lib v0.0.2
+require github.com/darkedges/go-frodo-lib v0.0.3-0.20241111101932-4bd81fe3689f
 
 require (
 	github.com/boombuler/barcode v1.0.2 // indirect
@@ -17,6 +17,6 @@ require (
 	github.com/lestrrat-go/option v1.0.1 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/pquerna/otp v1.4.0 // indirect
-	golang.org/x/crypto v0.28.0 // indirect
-	golang.org/x/exp v0.0.0-20241009180824-f66d83c29e7c // indirect
+	golang.org/x/crypto v0.29.0 // indirect
+	golang.org/x/exp v0.0.0-20241108190413-2d47ceb2692f // indirect
 )
