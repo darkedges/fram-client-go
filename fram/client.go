@@ -11,7 +11,7 @@ import (
 const HostURL string = "http://fram.example.com:8080/openam"
 
 // NewClient -
-func NewClient(host, username, password *string, realm *string) (*Client, error) {
+func NewClient(host, username, password *string, realm *string, otpsecret *string) (*Client, error) {
 	c := Client{
 		HTTPClient: &http.Client{Timeout: 10 * time.Second},
 		HostURL:    HostURL,
@@ -24,15 +24,27 @@ func NewClient(host, username, password *string, realm *string) (*Client, error)
 		c.Realm = *realm
 	}
 	if (username != nil) && (password != nil) {
-		f, _ := frodo.CreateInstanceWithAdminAccount(frodo.Params{
-			Host:  *host,
-			User:  *username,
-			Pass:  *password,
-			Realm: "/root",
-		})
+		var f frodo.ImFrodo
+		if otpsecret != nil {
+			f, _ = frodo.CreateInstanceWithAdminAccountTOTP(frodo.Params{
+				Host:      *host,
+				User:      *username,
+				Pass:      *password,
+				Realm:     "/root",
+				OTPSecret: *otpsecret,
+			})
+		} else {
+			f, _ = frodo.CreateInstanceWithAdminAccount(frodo.Params{
+				Host:  *host,
+				User:  *username,
+				Pass:  *password,
+				Realm: "/root",
+			})
+		}
 		f.Login()
 		info := f.GetInfo()
 		c.Token = info.SessionToken
+		c.Frodo = f
 	}
 
 	return &c, nil

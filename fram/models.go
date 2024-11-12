@@ -1,6 +1,9 @@
 package fram
 
-import "net/http"
+import (
+	"github.com/darkedges/go-frodo-lib"
+	"net/http"
+)
 
 // Client -
 type Client struct {
@@ -8,6 +11,7 @@ type Client struct {
 	Realm      string
 	HTTPClient *http.Client
 	Token      string
+	Frodo      frodo.ImFrodo
 }
 
 // AuthResponse -
