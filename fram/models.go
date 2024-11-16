@@ -1,7 +1,7 @@
 package fram
 
 import (
-	"github.com/darkedges/go-frodo-lib"
+	"github.com/darkedges/go-frodo-lib/frodo"
 	"net/http"
 )
 
