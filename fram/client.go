@@ -2,7 +2,7 @@ package fram
 
 import (
 	"fmt"
-	"github.com/darkedges/go-frodo-lib"
+	"github.com/darkedges/go-frodo-lib/frodo"
 	"io"
 	"net/http"
 	"time"
