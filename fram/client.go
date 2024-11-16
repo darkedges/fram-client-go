@@ -26,19 +26,18 @@ func NewClient(host, username, password *string, realm *string, otpsecret *strin
 	if (username != nil) && (password != nil) {
 		var f frodo.ImFrodo
 		if otpsecret != nil {
+			fmt.Println("Using TOTPSecret")
 			f, _ = frodo.CreateInstanceWithAdminAccountTOTP(frodo.Params{
 				Host:      *host,
 				User:      *username,
 				Pass:      *password,
-				Realm:     "/root",
 				OTPSecret: *otpsecret,
 			})
 		} else {
 			f, _ = frodo.CreateInstanceWithAdminAccount(frodo.Params{
-				Host:  *host,
-				User:  *username,
-				Pass:  *password,
-				Realm: "/root",
+				Host: *host,
+				User: *username,
+				Pass: *password,
 			})
 		}
 		f.Login()

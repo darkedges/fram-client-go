@@ -66,3 +66,4 @@ terraform
 /.idea/fram-client-go.iml
 /.idea/modules.xml
 /.idea/vcs.xml
+main.go
