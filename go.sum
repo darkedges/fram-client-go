@@ -3,6 +3,7 @@ github.com/boombuler/barcode v1.0.2 h1:79yrbttoZrLGkL/oOI8hBrUKucwOL0oOjUgEguGMc
 github.com/boombuler/barcode v1.0.2/go.mod h1:paBWMcWSl3LHKBqUq+rly7CNSldXjb2rDl3JlRe0mD8=
 github.com/darkedges/go-frodo-lib v0.0.3-0.20241111101932-4bd81fe3689f h1:4hSqKEQKuW5IW4BNn9Eix0MsPcstNXXzCt9PbBLHzok=
 github.com/darkedges/go-frodo-lib v0.0.3-0.20241111101932-4bd81fe3689f/go.mod h1:NyRkiTPBqR4Nvtq3HoZVpgUouKSaJdhRomCaqu+ZtvI=
+github.com/darkedges/go-frodo-lib v0.0.3-0.20241116004436-9ebea4dc1a25/go.mod h1:NyRkiTPBqR4Nvtq3HoZVpgUouKSaJdhRomCaqu+ZtvI=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
