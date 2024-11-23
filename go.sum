@@ -11,6 +11,8 @@ github.com/darkedges/go-frodo-lib v0.0.3-0.20241123030737-c6a12a0e9ab1 h1:ju8YqU
 github.com/darkedges/go-frodo-lib v0.0.3-0.20241123030737-c6a12a0e9ab1/go.mod h1:NyRkiTPBqR4Nvtq3HoZVpgUouKSaJdhRomCaqu+ZtvI=
 github.com/darkedges/go-frodo-lib v0.0.3-0.20241123033504-d33f3ac3c8ce h1:eh4P0f0FRwDKGPc1HIXbeTUpFlMPI0SIyLJ3NoEuW0Y=
 github.com/darkedges/go-frodo-lib v0.0.3-0.20241123033504-d33f3ac3c8ce/go.mod h1:NyRkiTPBqR4Nvtq3HoZVpgUouKSaJdhRomCaqu+ZtvI=
+github.com/darkedges/go-frodo-lib v0.0.3-0.20241123034644-256e6311ad7a h1:DOnyX4ogL68xizZ6y7y/2SrBvSIM5Vejexy1uQA1PC0=
+github.com/darkedges/go-frodo-lib v0.0.3-0.20241123034644-256e6311ad7a/go.mod h1:NyRkiTPBqR4Nvtq3HoZVpgUouKSaJdhRomCaqu+ZtvI=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
